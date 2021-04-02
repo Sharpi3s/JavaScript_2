@@ -1,88 +1,55 @@
 <template>
-  <section class="">
+
   <!-- Footer -->
-  <footer class="bg-gray text-center text-md-start">
+  <footer class="bg-pink text-center text-md-start">
     <!-- Grid container -->
-    <div class="container p-4">
+    <div class="container">
       <!--Grid row-->
       <div class="row">
         <!--Grid column-->
-        <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Footer Content</h5>
+        <div class="col-lg-12 col-md-12 my-4 mb-md-0">
+ 
+          
+          <div class="d-flex flex-column justify-content-center align-items-center mb-5">
+            <div class="me-4">
+              <img id="imgLogoFooter" src="@/assets/images/logo_rose_b.png" alt="">
+            </div>
+            <p class="col-9 text-center">
+              Rosemay is a storytelling brand offering great fashion at a competitive price, aiming to be kind to the world and empowering the young women in it. Over 120 concept stores offers the experience in 19 markets. Online, Rosemay delivers to 28 markets, and via International shipping to an additional 64 destinations worldwide. Rosemay was founded in 2021.
+            </p>
+           
 
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-            molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
-            aliquam voluptatem veniam, est atque cumque eum delectus sint!
-          </p>
+          </div>
+
+          <div class="d-flex justify-content-center">  
+            <div class="col-9 d-flex justify-content-evenly mb-5">
+        
+              <router-link to="/" class="text-uppercase pointer LP h5 text-dark">home</router-link>
+              <router-link to="/shop" class="text-uppercase pointer LP h5 text-dark">shop</router-link>
+              <router-link to="/" class="text-uppercase pointer LP h5 text-dark">about us</router-link>
+              <router-link to="/" class="text-uppercase pointer LP h5 text-dark">faq</router-link>
+              
+            </div>
+         
+          </div>
         </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Links</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a href="#!" class="text-dark">Link 1</a>
-            </li>
-            <li>
-              <a href="#!" class="text-dark">Link 2</a>
-            </li>
-            <li>
-              <a href="#!" class="text-dark">Link 3</a>
-            </li>
-            <li>
-              <a href="#!" class="text-dark">Link 4</a>
-            </li>
-          </ul>
+        <div class="d-flex justify-content-center align-items-center mb-3">
+          © 2021 Copyright
+          <a
+            class="btn btn-link btn-floating text-dark m-1 ms-2"
+            href="https://github.com/Sharpi3s/JavaScript_2"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-github fa-2x"></i
+          ></a>
         </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase mb-0">Links</h5>
-
-          <ul class="list-unstyled">
-            <li>
-              <a href="#!" class="text-dark">Link 1</a>
-            </li>
-            <li>
-              <a href="#!" class="text-dark">Link 2</a>
-            </li>
-            <li>
-              <a href="#!" class="text-dark">Link 3</a>
-            </li>
-            <li>
-              <a href="#!" class="text-dark">Link 4</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
       </div>
-      <!--Grid row-->
-    
 
     </div>
-    <!-- Grid container -->
     
 
-    <!-- Copyright -->
-    <div class="text-center p-3 bg-gray d-flex justify-content-center align-items-center">
-      © 2021 Copyright: 
-      <a class="ms-2 text-dark" href="#"> Brand</a>
-      <a
-        class="btn btn-link btn-floating text-dark m-1 ms-2"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-github fa-lg"></i
-      ></a>
-    </div>
-    <!-- Copyright -->
   </footer>
-  <!-- Footer -->
-</section>
+
 </template>
 
 <script>
@@ -92,7 +59,13 @@ export default {
 </script>
 
 <style>
-.bg-gray {background-color: #E1E0DE;
-  
+.bg-pink {
+  background-color: #c38587aa;
+}
+#imgLogoFooter {
+  height: 5rem;
+}
+.LP:hover {
+  text-decoration: underline;
 }
 </style>

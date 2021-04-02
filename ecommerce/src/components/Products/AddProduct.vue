@@ -122,9 +122,8 @@ export default {
   height: 70vh;
 }
 .headlineAdd {
-
-    margin-bottom: 0 !important;
-    background-color: #c38587f3;
+  margin-bottom: 0 !important;
+  background-color: #c38587f3;
 }
 #category {
   padding: 0.3rem;

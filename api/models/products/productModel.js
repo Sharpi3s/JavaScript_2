@@ -22,7 +22,8 @@ exports.saveProduct = (req, res) => {
     price: req.body.price,
     color: req.body.color,
     img: req.body.img,
-    category: req.body.category
+    category: req.body.category,
+    size: req.body.size
   })
 
   product.save()

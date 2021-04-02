@@ -161,9 +161,10 @@
                   <!-- <div id="userLogOut"> -->
                   <div class="length" v-show="cartItemCount">
                     <!-- v-if="user.loggedIn" -->
-                      <li class="dropdown-item border-bottom mb-2" v-for="(item, index) in cart" :key="index" :item="item">
+                     <div class="heightNavCart">
+                      <li class="dropdown-item border-bottom mb-2 " v-for="(item, index) in cart" :key="index" :item="item">
                         
-                        <div class="d-flex mb-3">
+                        <div class="d-flex my-3">
                           <img class="navItemCart me-2" :src="(item.product.img)" alt="">
                           <div class="d-flex justify-content-between col border-botten">
                               <div>
@@ -177,10 +178,10 @@
                               </div>
                               
                               <div class="d-flex flex-column justify-content-between align-items-end">
-                                <button class="btn btn-light px-3" @click="removeItem">X</button>
+                                <button class="btn btn-light px-3" @click="deleteOneCartItemNav(item)"><i class="fas fa-trash fa-lg"></i></button>
                                 <div class="btn-group">
-                                  <button @click="sub" class="btn btn-light">-</button>
-                                  <button @click="add" class="btn btn-light">+</button>
+                                  <button @click="sub" class="btn btn-light py-1"><i class="fas fa-minus"></i></button>
+                                  <button @click="add" class="btn btn-light py-1"><i class="fas fa-plus"></i></button>
                                 </div>
                               </div>
                               
@@ -189,17 +190,23 @@
                         </div>
                         
                       </li>
+                     </div>
                       <li class="p-3">
+                        <div class="d-flex justify-content-end px-2 mb-3">
+                          <p class="h5 me-4">Total:</p>
+                          <p class="h5">${{ cartPriceTotal }}</p>
+                        </div>
                         <button class="btn btn-dark btn-block text-white" @click="$router.push('/cart')">Go to cart</button>
                       </li>
                   </div>
 
 
-                  <!-- <div class="dropdown-item-text length" v-show="!cartItemCount">
+                  <div class="dropdown-item-text length" v-show="!cartItemCount">
                       <li class="dropdown-item">
-                        <button class="btn btn-purple btn-block text-white" @click.stop="">Sing Out</button>
+                        <p>Your cart is empty! </p>
+                        <button class="btn btn-dark btn-block text-white" @click="$router.push('/cart')">Go to cart</button>
                       </li>
-                  </div> -->
+                  </div>
                   
 
 
@@ -225,7 +232,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getUsers', 'login', 'logout', 'addToCart']),
+    ...mapActions(['getUsers', 'login', 'logout', 'addToCart', 'deleteOneCartItemNav']),
     onSubmit() {
 
       let error = document.querySelector('.error')
@@ -259,7 +266,7 @@ export default {
   },
    
   computed: {
-    ...mapGetters(['cartItemCount', 'cart', 'loggedIn', 'errorLoggin', 'oneUser'])
+    ...mapGetters(['cartItemCount', 'cart', 'loggedIn', 'errorLoggin', 'oneUser', 'cartPriceTotal'])
     // ...mapGetters(['users', 'user', 'cartItemCount', 'cart','loggedIn'])
   },
   mounted() {
@@ -275,7 +282,9 @@ export default {
   width: 20rem;
 }
 .length {
-  width: 28rem;
+  width: 26rem;
+  max-height: 35rem;
+  /* overflow-y: scroll; */
 }
 /* #userLogOut {
   width: 20rem;
@@ -307,6 +316,10 @@ export default {
 }
 .nav-link {
   z-index: 5;
+}
+.heightNavCart {
+  max-height: 27rem;
+  overflow-y: scroll;
 }
 .top p {
   font-size: 0.7rem;

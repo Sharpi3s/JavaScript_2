@@ -29,41 +29,131 @@ export default {
   },
   mutations: {
 
+    // ADD_PRODUCT_TO_CART: (state, { product, quantity, size, amount}) => {
+    //   let exists = state.cart.find(item => item.product._id === product._id)
+
+    //   if(exists && exists.size === size) {
+
+    //     exists.quantity += quantity
+    //     exists.amount += amount 
+    //     return
+        
+    //   }
+
+    //   state.cart.push({product, quantity, size, amount})
+    // },
+
+
     ADD_PRODUCT_TO_CART: (state, { product, quantity, size, amount}) => {
       let exists = state.cart.find(item => item.product._id === product._id)
       
+      
       // console.log(exists)
 
-      if(exists && exists.size === size) {
-        // if(sizeExist) {
-        // console.log(sizeExist.size)
-        exists.quantity += quantity
-        exists.amount += amount 
-        return
-        // console.log(exists.size)
-        // }
+      if(exists) {
         
+          console.log(size)
+         
+          
+    
+         
+          // if(size === 'Small') {
+            exists.quantity += quantity
+            exists.amount += amount 
+            return
+          // }
+          // if(size === 'Medium') {
+          //   exists.quantity += quantity
+          //   exists.amount += amount 
+          //   return
+          // }
+          // if(size === 'Large') {
+          //   exists.quantity += quantity
+          //   exists.amount += amount 
+          //   return
+          // }
+
       }
+      // if(exists && size === 'Medium') {
+      //   // if(sizeExist) {
+      //   // console.log(sizeExist.size)
+      //   exists.quantity += quantity
+      //   exists.amount += amount 
+      //   return
+      //   // console.log(exists.size)
+      //   // }
+        
+      // }
+      // if(exists && size === 'Large') {
+      //   // if(sizeExist) {
+      //   // console.log(sizeExist.size)
+      //   exists.quantity += quantity
+      //   exists.amount += amount 
+      //   return
+      //   // console.log(exists.size)
+      //   // }
+        
+      // }
 
       state.cart.push({product, quantity, size, amount})
     },
  
-    DELETE_ONE_CART_ITEM: (state, {product, quantity, size}) => {
+    DELETE_ONE_CART_ITEM: (state, {product, size}) => {
 
       let exists = state.cart.find(item => item.product._id === product._id)
       // console.log(exists)
-      if(exists) {
-        
-        if(quantity < 2) {
-          state.cart = state.cart.filter(item => {
-            console.log(size)
-            return item.product._id !== product._id
-          })
-        } else {
-          exists.quantity -= 1
-          exists.amount -= product.price
-        }  
+      if(exists && size === 'Medium') {
+        state.cart = state.cart.filter(item => {
+          console.log(size)
+          return item.product._id !== product._id
+        })
       }
+
+
+      // if(quantity < 2 && size === 'Small') {
+      //   state.cart = state.cart.filter(item => {
+      //     console.log(size)
+      //     return item.product._id !== product._id
+      //   })
+      // } 
+      // else if(quantity < 2 && size === 'Medium') {
+      //   state.cart = state.cart.filter(item => {
+      //     console.log(size)
+      //     return item.product._id !== product._id
+      //   })
+      // } 
+      // else if(quantity < 2 && size === 'Large') {
+      //   state.cart = state.cart.filter(item => {
+      //     console.log(size)
+      //     return item.product._id !== product._id
+      //   })
+      // } 
+
+      // if(exists) {
+      //   // else {
+      //   //   exists.quantity -= 1
+      //   //   exists.amount -= product.price
+      //   // }  
+      //   // if(quantity < 2) {
+      //   //   state.cart = state.cart.filter(item => {
+      //   //     console.log(size)
+      //   //     return item.product._id !== product._id
+      //   //   })
+      //   // } 
+      //   // else {
+      //   //   exists.quantity -= 1
+      //   //   exists.amount -= product.price
+      //   // }  
+      // }
+    },
+    DELETE_ONE_CART_ITEM_NAV: (state, {product}) => {
+      let exists = state.cart.find(item => item.product._id === product._id)
+      if(exists) {
+        state.cart = state.cart.filter(item => {
+          return item.product._id !== product._id
+        })
+      }
+
     },
     DELETE_CART: (state) => {
       state.cart = []
@@ -81,6 +171,9 @@ export default {
     // }
     deleteOneCartItem: ({commit}, {product, quantity, size}) => {
       commit('DELETE_ONE_CART_ITEM', {product, quantity, size})
+    },
+    deleteOneCartItemNav: ({commit}, {product, quantity, size}) => {
+      commit('DELETE_ONE_CART_ITEM_NAV', {product, quantity, size})
     },
     deleteCart: ({commit}) => {
       commit('DELETE_CART')

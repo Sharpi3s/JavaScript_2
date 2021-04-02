@@ -47,22 +47,31 @@
               </td>
 
               <td>
+
+                <!-- <div class=" d-flex flex-column col-6">
+                  <select name="size" id="size" class="form-label" v-model="size">
+                    <option value="">--Please choose an option--</option>
+                    <option value="Bottoms">Small</option>
+                    <option value="Dresses">Medium</option>
+                    <option value="Tops">Large</option>
+                  </select>
+                </div> -->
                 <div class="mt-1">
-                  <div class="form-check form-check-inline pl-0">
+                  <div class="form-check form-check-inline pl-0" >
                     <input type="radio" class="form-check-input" id="small" value="Small" name="materialExampleRadios" v-model="size" >
-                    <!-- <input type="radio" class="form-check-input" id="small" name="materialExampleRadios" v-model="small"> -->
+ 
                     <label class="form-check-label small text-uppercase card-link-secondary"
                       for="small">Small</label>
                   </div>
                   <div class="form-check form-check-inline pl-0">
                     <input type="radio" class="form-check-input" id="medium" value="Medium" name="materialExampleRadios" v-model="size" >
-                    <!-- <input type="radio" class="form-check-input" id="medium" name="materialExampleRadios" v-model="medium" > -->
+
                     <label class="form-check-label small text-uppercase card-link-secondary"
                       for="medium">Medium</label>
                   </div>
                   <div class="form-check form-check-inline pl-0">
                     <input type="radio" class="form-check-input" id="large" value="Large" name="materialExampleRadios" v-model="size">
-                    <!-- <input type="radio" class="form-check-input" id="large" name="materialExampleRadios" v-model="large"> -->
+
                     <label class="form-check-label small text-uppercase card-link-secondary"
                       for="large">Large</label>
                   </div>
@@ -74,6 +83,7 @@
         </tbody>
          <!-- <button type="button" class="btn btn-light btn-md ms-4 my-4" @click="addOneToCart"><i class="fas fa-shopping-bag pr-2"></i> Add to cart</button> -->
          <!-- <button type="button" class="btn btn-light btn-md ms-4 my-4" @click="total(); addToCart({product});"><i class="fas fa-shopping-bag pr-2"></i> Add to cart</button> -->
+         <!-- <button type="button" class="btn btn-light btn-md ms-4 my-4" @click="total(); addOneToCart(); "><i class="fas fa-shopping-bag pr-2"></i> Add to cart</button> -->
          <button type="button" class="btn btn-light btn-md ms-4 my-4" @click="total(); addToCart({product, quantity, size, amount});"><i class="fas fa-shopping-bag pr-2"></i> Add to cart</button>
       </table>
 
@@ -101,7 +111,7 @@ export default {
    data() {
     return {
       quantity: 1,
-      size: 'Medium',
+      size: null,
       amount: 0    
     }
     
@@ -116,10 +126,29 @@ export default {
       let amounts = this.product.price * this.quantity
       this.amount = amounts
       
+    },
+    addOneToCart() {
+      // this.size = this.product.size
+      // let oneProduct = {
+      //   product: this.product._id,
+      //   quantity: this.quantity,
+      //   amount: this.amount,
+      //   size: this.product.size
+      // }
+      // this.addToCart(oneProduct)
+
+
+      // let select = document.querySelector('select')
+      // this.size = this.product.size
+      // if(select === ''){
+        
+        
+      // } else {
+      //   console.log('error')
+      // }
+
+      
     }
-    // addOneToCart() {
-    //   this.addToCart(this.product)
-    // }
   },
   computed: {
     ...mapGetters(['product'])
@@ -143,5 +172,8 @@ export default {
 <style>
 .pdBody {
   height: calc(100vh - 400px);
+}
+#size {
+  padding: 0.1rem 0 0.1rem 0;
 }
 </style>

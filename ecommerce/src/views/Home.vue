@@ -8,7 +8,7 @@
       <div class="hChild d-flex flex-column justify-content-center align-items-center">
         <img class="mb-5 me-5" src="@/assets/images/logo_rose_large.png" alt="">
         <!-- <div class="btn-group"> -->
-          <button class="btn btn-pink" >NEW IN STORE</button>
+          <router-link to="/newin" class="btn btn-pink" >NEW IN STORE</router-link>
           <!-- <button class="btn btn-light px-4">SHOP NOW</button> -->
         <!-- </div> -->
       </div>

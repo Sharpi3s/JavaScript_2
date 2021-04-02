@@ -65,6 +65,7 @@ export default {
       onSubmit() {
         if(this.user.firstName !== '' && this.user.lastName !== '' && this.user.email !== '' && this.user.password !== '') {
           this.register(this.user)
+          this.$router.push({ name: 'Home'});
         }
 
       }
