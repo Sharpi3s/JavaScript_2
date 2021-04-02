@@ -18,11 +18,11 @@
           <input type="password" id="password2" class="form-control" v-model="password"/>
           
         </div>
-        <button type="submit" class="btn btn-purple btn-block text-white mb-4" >Sign in</button>
+        <button type="submit" class="btn btn-pink btn-block mb-4" >Sign in</button>
 
         <div class="text-center">
           <small class="error"> {{errorLoggin}} </small>
-          <p>Not a member? <router-link to="/register">Register</router-link></p>
+          <p>Not a member? <router-link class="RegLink" to="/register">Register</router-link></p>
         </div>
       </form>
     </div>
@@ -105,5 +105,12 @@ width: 100%;
 background-color: #333333d5;
 
 z-index: 3;
+}
+.RegLink {
+  text-decoration: underline;
+  color: #000;
+}
+.RegLink:hover {
+  color: #c38587f3;
 }
 </style>

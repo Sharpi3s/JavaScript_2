@@ -37,7 +37,7 @@
       </div>
 
       <div class="col-2 m-auto">
-          <button type="submit" class="btn btn-purple btn-block mb-4 text-white">Sign up</button>
+          <button type="submit" class="btn btn-pink btn-block mb-4">Sign up</button>
       </div>
       
 
@@ -84,8 +84,7 @@ export default {
   height: 70vh;
 }
 .headlineReg {
-    background: linear-gradient(to right, rgba(102, 126, 234, 1), rgba(118, 75, 162, 1));
-    background: -webkit-linear-gradient(to right, rgba(102, 126, 234, 1), rgba(118, 75, 162, 1));
-    margin-bottom: 0 !important;
+  margin-bottom: 0 !important;
+  background-color: #c38587f3;
 }
 </style>

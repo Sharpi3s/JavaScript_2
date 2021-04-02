@@ -8,6 +8,9 @@
     <router-link :to="'/product/details/' + product._id" class="bg-image hover-zoom">
       <img class="card-img-top" :src="(product.img)" alt="Card image cap">
     </router-link>
+    <!-- <router-link :to="'/product/details/' + product._id" class="bg-image hover-zoom">
+      <img class="card-img-top" :src="(product.img)" alt="Card image cap">
+    </router-link> -->
     
     <!-- <div class="card-header">{{ product.category }}</div> -->
     <div class="card-body d-flex justify-content-between align-items-center">

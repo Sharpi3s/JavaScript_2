@@ -49,13 +49,13 @@
             <!-- <h3><strong>$ {{ this.total }}</strong></h3> -->
           </div>
           <div class="mt-5 pb-2" v-if="loggedIn">
-            <button class="btn btn-primary mb-3"  @click="send()">Place order</button>
+            <button class="btn btn-pink mb-3"  @click="send()">Place order</button>
             <p>{{ error }}</p>
           </div>
 
           <div class="mt-5  pb-2" v-if="!loggedIn">
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <button class="btn btn-primary"  @click="send()">Place order</button>
+                <button class="btn btn-pink"  @click="send()">Place order</button>
                 <p class="SignIn" @click="showPop">Sign in</p>
             </div>
             <p>{{ error }}</p>
@@ -101,25 +101,16 @@ export default {
         console.log('Success')
 
         let data = {
-          totalPrice: this.cartPriceTotal + this.delivery,
+          totalPrice: this.cartPriceTotal,
           cart: this.cart,
           user: this.oneUser,
         }
         
         this.addOrder(data)
-       
         this.success = true
-        // this.$router.go(this.$router.currentRoute)
-
-        // const orderData = data
-
         this.deleteCart()
-
-
         this.$router.push({ name: 'MyOrder'});
-        // this.$router.push({ name: 'MyOrder'});
         
-        console.log(data)
         } else {
           console.log('Error')
           this.error = 'Ops! Your cart is empty.'
@@ -146,8 +137,14 @@ export default {
   computed: {
     ...mapGetters(['cart', 'cartPriceTotal', 'oneUser', 'newOrder', 'loggedIn'])
   },
-  created() {
+  updated() {
     this.amount()
+  },
+  mounted() {
+    this.amount()
+  },
+  unmounted() {
+    this.$forceUpdate();
   }
 
 }
@@ -178,4 +175,11 @@ export default {
     cursor: pointer;
     text-decoration: underline;
   }
+  /* .btn-pink {
+  background-color: #c38587f3;
+  color: #fff;
+  }
+  .btn-pink:hover {
+    background-color: #fff;
+  } */
 </style>

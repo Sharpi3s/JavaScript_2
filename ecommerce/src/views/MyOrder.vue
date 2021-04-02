@@ -68,7 +68,7 @@
               <h6 class="text-muted">$ {{ delivery }}</h6>
             </div>
             <hr>
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between mt-4">
               <h4>TOTAL</h4>
               <h4>$ {{ lastOrder.totalprice  }}</h4>
             </div>
@@ -88,14 +88,10 @@ import { mapGetters, mapActions } from 'vuex'
 import MyOrderProducts from '../components/Orders/MyOrderProducts.vue'
 export default {
   components: { MyOrderProducts },
-  // props: ['id'],
+
   data() {
     return {
-      // order: this.newOrder
-      // order: this.last_element
-      // last: this.last
       delivery: 6,
-      // thisUser: this.user
     }
   },
   computed: {
@@ -109,37 +105,19 @@ export default {
       
       let total = this.lastOrder.totalprice
 
-      if(total > 50) {
-        
-        // let noDelivery = this.lastOrder.totalprice - this.delivery
-        
-        // this.lastOrder.totalprice = noDelivery
+      if(total > 50) {  
         this.delivery = 0
-        // console.log(noDelivery)
-        // console.log( this.lastOrder.totalprice)
       } else {
         total = total + this.delivery
       }
-      
-
-     
     }
-    
+  },
 
-  },
-  beforeCreate() {
-    
-  },
   async created() {
-    // this.checkUser()
     await this.getLastOrder() 
     this.amount()
   },
-  mounted() {
 
-    this.$forceUpdate();
-   
-  }
 }
 </script>
 

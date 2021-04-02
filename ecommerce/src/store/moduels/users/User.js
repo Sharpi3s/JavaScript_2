@@ -136,7 +136,7 @@ export default {
       let token = localStorage.getItem('token')
       if(token) {
         localStorage.removeItem('token')
-
+        router.push({name: 'Home'})
         commit('SET_USER', null)
       }
     },

@@ -96,7 +96,7 @@
                         <p class="text-dark" >My Orders</p>
                       </router-link>
                       <li class="dropdown-item">
-                        <button class="btn btn-purple btn-block text-white" @click.stop="logout">Sing Out</button>
+                        <button class="btn btn-pink btn-block" @click.stop="logout">Sing Out</button>
                       </li>
                   </div>
 
@@ -116,12 +116,12 @@
                         <input type="password" id="password" class="form-control" v-model="password"/>
                         
                       </div>
-                      <button type="submit" class="btn btn-purple btn-block text-white mb-4" >Sign in</button>
+                      <button type="submit" class="btn btn-pink btn-block mb-4" >Sign in</button>
 
                       <div class="text-center">
                         <small class="error"></small>
                         <small class="error"> {{errorLoggin}} </small>
-                        <p>Not a member? <router-link to="/register">Register</router-link></p>
+                        <p>Not a member? <router-link class="RegLink" to="/register">Register</router-link></p>
                       </div>
                     </form>
                   </div>
@@ -178,10 +178,10 @@
                               </div>
                               
                               <div class="d-flex flex-column justify-content-between align-items-end">
-                                <button class="btn btn-light px-3" @click="deleteOneCartItemNav(item)"><i class="fas fa-trash fa-lg"></i></button>
+                                <button class="btn btn-light px-3" @click.stop="deleteOneCartItem(item, item.quantity, item.size)"><i class="fas fa-trash fa-lg"></i></button>
                                 <div class="btn-group">
-                                  <button @click="sub" class="btn btn-light py-1"><i class="fas fa-minus"></i></button>
-                                  <button @click="add" class="btn btn-light py-1"><i class="fas fa-plus"></i></button>
+                                  <button @click.stop="subItem(item, item.size)" class="btn btn-light py-1"><i class="fas fa-minus"></i></button>
+                                  <button @click.stop="addItem(item, item.size)" class="btn btn-light py-1"><i class="fas fa-plus"></i></button>
                                 </div>
                               </div>
                               
@@ -232,7 +232,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getUsers', 'login', 'logout', 'addToCart', 'deleteOneCartItemNav']),
+    ...mapActions(['getUsers', 'login', 'logout', 'addToCart', 'deleteOneCartItem', 'addItem', 'subItem']),
     onSubmit() {
 
       let error = document.querySelector('.error')
@@ -254,15 +254,7 @@ export default {
           error.innerText = 'Email or password cannot be empty'
         }   
     },
-    removeItem() {
 
-    },
-    sub() {
-
-    },
-    add() {
-
-    }
   },
    
   computed: {
@@ -319,7 +311,7 @@ export default {
 }
 .heightNavCart {
   max-height: 27rem;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .top p {
   font-size: 0.7rem;

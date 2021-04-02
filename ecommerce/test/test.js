@@ -1,1 +1,0 @@
-let exists = state.cart.find(item => item.product._id === product._id)

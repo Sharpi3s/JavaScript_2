@@ -111,7 +111,7 @@ export default {
    data() {
     return {
       quantity: 1,
-      size: null,
+      size: 'Medium',
       amount: 0    
     }
     
