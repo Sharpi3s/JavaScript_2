@@ -247,6 +247,8 @@ export default {
           let route = this.$route.query.redirect
           this.login({user, route})
           error.innerText = ''
+          this.email = ''
+          this.password = ''
             
         } 
         else {

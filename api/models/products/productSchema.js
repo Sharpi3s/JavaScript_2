@@ -8,7 +8,6 @@ const productSchema = mongodb.Schema({
   color: { type: String, required: true },
   img: { type: String, required: true },
   category: { type: String, required: true },
-  size: { type: String, required: true },
   itemNumber: { type: Number, default: function() {
     return Math.floor(100000 + Math.random() * 900000) },
   } ,

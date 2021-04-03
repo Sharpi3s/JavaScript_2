@@ -23,7 +23,6 @@ exports.saveProduct = (req, res) => {
     color: req.body.color,
     img: req.body.img,
     category: req.body.category,
-    size: req.body.size
   })
 
   product.save()

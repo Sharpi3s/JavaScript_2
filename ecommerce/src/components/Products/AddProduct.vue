@@ -1,9 +1,9 @@
 <template>
-<div class="container register d-flex flex-column justify-content-center align-items-center">
-    <div class="text-center mb-5 headlineAdd col-6  shadow-2">
-        <h2 class="text-white p-3">Add New Product</h2>
+<div class="container register d-flex flex-column justify-content-center align-items-center mt-5">
+    <div class="mb-5 headlineAdd col-3">
+        <h2 class=" p-3">Add New Product</h2>
     </div>
-    <form class="col-6 p-3 shadow-1" @submit.prevent="onSubmit">
+    <form class="col-6 p-3 mb-5 shadow-1" @submit.prevent="onSubmit">
       <!-- 2 column grid layout with2text inputs for the first and last names -->
       
       <div class="row mb-4">
@@ -108,10 +108,11 @@ export default {
         }
         console.log(this.newProduct)
       },
-      test() {
-        console.log(this.newProduct)
-      }
+
     },
+    // updated() {
+    //    this.$forceUpdate();
+    // }
             
 }
 </script>
@@ -122,8 +123,8 @@ export default {
   height: 70vh;
 }
 .headlineAdd {
-  margin-bottom: 0 !important;
-  background-color: #c38587f3;
+  display: flex;
+  border-bottom: 2px solid #c38587f3;
 }
 #category {
   padding: 0.3rem;

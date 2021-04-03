@@ -25,9 +25,9 @@
          
         
       </div>
-      <div  class="col-4  me-5">
+      <div  class="col-4 me-5">
         <h4 class="mt-2 mb-4">Order details:</h4>
-        <div class="orders">
+        <div class="orders pe-3">
           <order-details />
         </div>
           

@@ -4,7 +4,13 @@
 
     <section class="dark-grey-textr my-5">
 
-        <h3 class="font-weight-bold text-left mb-3">Products</h3>
+        <h3 class="font-weight-bold text-left mb-5">Products</h3>
+        <div class="d-flex justify-content-between col-6 sort">
+          <p class="h6 mb-4" @click="bottoms">Bottoms</p>
+          <p class="h6 mb-4" @click="dresses">Dresses</p>
+          <p class="h6 mb-4" @click="tops">Tops</p>
+          <p class="h6 mb-4" @click="all">See All Products</p>
+        </div>
 
         <div class="card">
           <div class="card-body">
@@ -94,7 +100,8 @@ export default {
   },
   mounted() {
     this.getProducts()
-  }
+  },
+
 }
 </script>
 
@@ -108,5 +115,9 @@ export default {
 .align-left {
   display: flex;
 
+}
+.sort p:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 </style>

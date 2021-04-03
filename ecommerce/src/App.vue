@@ -28,7 +28,5 @@ export default {
   padding: 0;
   margin: 0;
 }
-.btn-purple {
-  background-color: #7E57C2;
-}
+
 </style>

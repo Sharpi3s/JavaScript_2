@@ -186,8 +186,6 @@ export default {
     this.sortBottoms('bottoms')
     this.sortTops('tops')
 
-
-
   }
 }
 </script>

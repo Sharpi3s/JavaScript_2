@@ -3,8 +3,8 @@
     <div v-if="this.oneUser.admin">
     <!-- <div v-if="this.oneUser.admin"> -->
       <div class="text-center">
-        <button class="btn btn-sm rounded-0" :class="allClasses" @click="change('AllProducts')">Products</button>
-        <button class="btn btn-sm rounded-0" :class="addClasses" @click="change('AddProduct')">Add Product</button>
+        <div class="btn rounded-0 me-5" :class="allClasses" @click="change('AllProducts')">Products</div>
+        <div class="btn rounded-0" :class="addClasses" @click="change('AddProduct')">Add Product</div>
       </div>
         <keep-alive>
           <component :is="comp" />
@@ -51,18 +51,19 @@ import NotFound from '../components/Error/NotFound.vue'
     computed: {
       allClasses() {
         return {
-          'btn-pink': this.all,
-          'btn-outline-pink': !this.all
+          'btn-outline-pink': this.all,
+          '': !this.all
         }
       },
       addClasses() {
         return {
-          'btn-pink': this.add,
-          'btn-outline-pink': !this.add
+          'btn-outline-pink': this.add,
+          '': !this.add
         }
       },
       ...mapGetters(['oneUser', 'loggedIn'])
-    }
+    },
+
   }
 </script>
 
@@ -72,7 +73,8 @@ import NotFound from '../components/Error/NotFound.vue'
     box-shadow: none;
   }
   .btn-outline-pink {
-    border: 2px solid #c38587f3;
+    border: none;
+    border-bottom: 2px solid #c38587f3;
   }
   .btn-pink:hover {
     background-color: #c38587f3;

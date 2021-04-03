@@ -14,14 +14,17 @@
           <p>{{ user.email }}</p>
         </div>
       </div>
-      <div class="mb-4">
-        <strong>User id:</strong>
-        <p> {{ user._id }}</p>
-      </div>
-      <div class="mb-4">
-        <strong>Member since:</strong>
-        <p> {{ user.created }}</p>
-      </div>
+      <div class="d-flex justify-content-between">
+        <div class="mb-4">
+          <strong>User id:</strong>
+          <p> {{ user._id }}</p>
+        </div>
+        <div class="mb-4">
+          <strong>Member since:</strong>
+          <p> {{ user.created }}</p>
+        </div>
+      </div >
+
       <div>
         <button
         class="btn btn-pink dropdown-toggle mb-5"
@@ -45,6 +48,7 @@
             <tr>
               <th scope="col">Order Nr:</th>
               <th scope="col">Orderd:</th>
+              <th scope="col">Total:</th>
               <th scope="col">Handle</th>
             </tr>
           </thead>

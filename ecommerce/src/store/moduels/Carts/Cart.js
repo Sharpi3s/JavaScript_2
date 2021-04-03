@@ -8,6 +8,9 @@ export default {
   getters: {
     // cart: state => state.cart
     cart: state => {
+      if(sessionStorage.getItem('shoppingCart') !== null) {
+        state.cart = JSON.parse(sessionStorage.getItem('shoppingCart'))
+      }
       return state.cart
     },
     cartItemCount: state => {
@@ -36,25 +39,25 @@ export default {
 
         exists.quantity += quantity
         exists.amount += amount 
+        sessionStorage.setItem('shoppingCart', JSON.stringify(state.cart))
         return
         
       }
       state.cart.push({product, quantity, size, amount})
+      sessionStorage.setItem('shoppingCart', JSON.stringify(state.cart))
     }, 
  
     DELETE_ONE_CART_ITEM: (state, {product, size}) => {
-
-      let exists = state.cart.find(item => item.product._id === product._id && item.size === size )
-      if(exists) {
-
-          state.cart = state.cart.filter(item => {
-            return item.size !== size
-          })
-      }
+      // state.cart = state.cart.filter(item => item.product._id !== product._id && item.size === size)
+      // let exists = state.cart.find(item => item.size === size)
+      const index = state.cart.findIndex( i => i.product._id === product._id && i.size === size);
+      state.cart.splice( index, 1 );
+      sessionStorage.setItem('shoppingCart', JSON.stringify(state.cart))
     },
 
     DELETE_CART: (state) => {
       state.cart = []
+      sessionStorage.setItem('shoppingCart', JSON.stringify(state.cart))
     },
 
     ADD_ITEM: (state, {product, size} ) => {
@@ -63,10 +66,11 @@ export default {
 
         exists.quantity += 1
         exists.amount += product.price 
-        state.cartPriceTotal 
+        // state.cartPriceTotal 
+        sessionStorage.setItem('shoppingCart', JSON.stringify(state.cart))
         return 
       }
-     
+      
     },
 
     SUB_ITEM: (state, {product, size} ) => {
@@ -75,6 +79,7 @@ export default {
 
         exists.quantity -= 1
         exists.amount -= product.price 
+        sessionStorage.setItem('shoppingCart', JSON.stringify(state.cart))
         return
       }
      

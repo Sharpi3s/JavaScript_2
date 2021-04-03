@@ -25,9 +25,20 @@ export default {
         }
         return user
       }
-      return state.order
+      return state.user
     } ,
-    oneUser: state => state.oneUser,
+    oneUser: state => {
+      if(state.oneUser) {
+        let date = dateBuilder(new Date(state.oneUser.created))
+        let oneUser = {
+          ...state.oneUser,
+          created: date
+        }
+        return oneUser
+      }
+      return state.oneUser
+    } ,
+    
 
     loggedIn: state => state.loggedIn,
     errorLoggin: state=> state.errorLoggin,
@@ -114,10 +125,7 @@ export default {
             if(payload.route) {
               router.push(payload.route)
             } 
-            // else {
-            //   // Silvertejpslösning men ville få bort error i console
-            //   router.push('/').catch(()=>{});
-            // }
+
           } 
 
         })
