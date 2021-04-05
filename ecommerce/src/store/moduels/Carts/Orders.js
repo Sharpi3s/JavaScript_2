@@ -1,12 +1,10 @@
 import axios from '@/axios'
 
-
 export default {
   state: {
     orders: [],
     userOrder: null,
     lastOrder: null
-    
   },
   getters: {
     orders: state => state.orders,
@@ -16,8 +14,6 @@ export default {
   },
   mutations: {
     GET_ORDERS: (state, orders) => {
-        // state.orders = orders.reverse()
-
         let ordersDate = orders.map(order => {
           order.createdAt = dateBuilder(new Date(order.createdAt))
           return order
@@ -25,7 +21,6 @@ export default {
         state.orders = ordersDate.reverse()
     },
     GET_ONE_ORDER: (state, result) => {
-      // state.userOrder = resultat.reverse()
       let ordersDate = result.map(order => {
         order.createdAt = dateBuilder(new Date(order.createdAt))
         return order
@@ -35,7 +30,6 @@ export default {
     LAST_ORDER: (state, lastOrder) => {
       state.lastOrder = lastOrder
     }
-
 
   },
   actions: {
@@ -55,8 +49,6 @@ export default {
       let lastOrder = await res.data.slice(-1)[0]
       commit('LAST_ORDER', lastOrder)
     }, 
-
-
   },
 
 }

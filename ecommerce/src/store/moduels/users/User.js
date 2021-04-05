@@ -1,20 +1,16 @@
 import axios from '@/axios'
 import router from '@/router'
-// import VueJwtDecode from 'vue-jwt-decode'
 import jwt_decode from "jwt-decode";
 
 export default {
   state: {
     oneUser: null,
     user: null,
-    // newUser: null,
-
     userToken: null,
     loggedIn: false,
     errorLoggin: null,
     delUser: null,
     updateOneUser: null
-    
   },
   getters: {
     user: state => {
@@ -56,7 +52,6 @@ export default {
         console.log(user)
         state.userToken = token
         state.loggedIn = true
-        
       } else {
         state.userToken = null
         state.loggedIn = false
@@ -99,7 +94,7 @@ export default {
   },
   actions: {
     getOneUser: async ({commit}, _id) => {
-      const res = await axios.get('http://localhost:9999/api/users/' + _id)
+      const res = await axios.get('/users/' + _id)
       commit('GET_USER', res.data)
     },
   
@@ -148,7 +143,11 @@ export default {
       let token = localStorage.getItem('token')
       if(token) {
         localStorage.removeItem('token')
-        router.push({name: 'Home'})
+        router.push({name: 'Home'}).catch(error => {
+          if(error.name != "NavigationDuplicated") {
+            throw error;
+          }
+        })
         commit('SET_USER', null)
       }
     },
@@ -157,8 +156,6 @@ export default {
       commit('DELETE_ONE_USER', res.data)
     },
     updateUser: async ({commit}, _user) => {
-
-
       await axios.patch('/users/' + _user._id, _user)
 
       commit('UPDATE_ONE_USER', _user)

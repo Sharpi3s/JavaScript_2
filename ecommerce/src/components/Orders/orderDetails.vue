@@ -1,5 +1,6 @@
 <template>
   <div v-if="order">
+    
     <div class="mb-3">
       <h5>Order nr</h5>
       <p class="text-muted">{{ order._id }}</p>
@@ -32,7 +33,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-
-</style>

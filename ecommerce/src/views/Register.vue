@@ -1,10 +1,11 @@
 <template>
   <div class="container register d-flex flex-column justify-content-center align-items-center">
+    
     <div class="text-center mb-5 headlineReg col-6  shadow-2">
         <h2 class="text-white p-3">Register</h2>
     </div>
+
     <form class="col-6 p-3 shadow-1" @submit.prevent="onSubmit">
-      <!-- 2 column grid layout with2text inputs for the first and last names -->
       
       <div class="row mb-4">
         <div class="col">
@@ -23,14 +24,11 @@
         </div>
       </div>
 
-      <!-- Email input -->
       <div class="mb-4">
         <label class="form-label" for="email2">Email address</label>
-        <input type="email" id="email2" class="form-control" v-model="user.email"/>
-        
+        <input type="email" id="email2" class="form-control" v-model="user.email"/>  
       </div>
 
-      <!-- Password input -->
       <div class="mb-4">
         <label class="form-label" for="password2">Password</label>
         <input type="password" id="password2" class="form-control" v-model="user.password"/>
@@ -40,9 +38,8 @@
           <button type="submit" class="btn btn-pink btn-block mb-4">Sign up</button>
       </div>
       
-
-
     </form>
+    
   </div>
 </template>
 
@@ -76,11 +73,6 @@ export default {
 
 <style>
 .register {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 70vh; */
   height: 70vh;
 }
 .headlineReg {

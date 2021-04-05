@@ -1,20 +1,22 @@
 <template>
   <div class="container mt-5">
     <div v-if="this.oneUser.admin">
-    <!-- <div v-if="this.oneUser.admin"> -->
+
       <div class="text-center">
         <div class="btn rounded-0 me-5" :class="allClasses" @click="change('AllProducts')">Products</div>
         <div class="btn rounded-0" :class="addClasses" @click="change('AddProduct')">Add Product</div>
       </div>
-        <keep-alive>
-          <component :is="comp" />
-        </keep-alive>
+
+      <keep-alive>
+        <component :is="comp" />
+      </keep-alive>
+
     </div>
 
     <div v-else>
       <not-found />
-      
     </div>
+    
   </div>
 </template>
 
@@ -75,9 +77,5 @@ import NotFound from '../components/Error/NotFound.vue'
   .btn-outline-pink {
     border: none;
     border-bottom: 2px solid #c38587f3;
-  }
-  .btn-pink:hover {
-    background-color: #c38587f3;
-    color: white;
   }
 </style>

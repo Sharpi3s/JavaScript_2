@@ -8,34 +8,29 @@
     <div class="d-flex justify-content-between mb-5">
       <div class="col-6">
 
-       
-          <div class="col-11">
-            <label class="form-label">Search orders by users email</label>
-            <div class="input-group mb-3">
+        <div class="col-11">
+          <label class="form-label">Search orders by users email</label>
+          <div class="input-group mb-3">
 
-              <input type="text" class="form-control" v-model="searchMail">
-              <span class="input-group-text border-0" id="search-addon"><i class="fas fa-search"></i></span>               
-            </div>
+            <input type="text" class="form-control" v-model="searchMail">
+            <span class="input-group-text border-0" id="search-addon"><i class="fas fa-search"></i></span>               
           </div>
+        </div>
          
-
         <div class="tableHeight" v-if="orders.length">
           <table class="table" >
             <thead>
               <tr>
-
                 <th scope="col">Email</th>
                 <th scope="col">Order Nr</th>
                 <th scope="col">Amount</th>
                 <th scope="col">Remove</th>
-
               </tr>
             </thead>
             
-              <order-body v-for="order in filter" :key="order._id" :order="order" />
-           
+            <order-body v-for="order in filter" :key="order._id" :order="order" />
           </table>
-         </div>
+        </div>
 
       </div>
       <div  class="col-4 me-5">
@@ -46,7 +41,6 @@
           
       </div>
     </div>
-     
   </div>
 </template>
 
@@ -81,16 +75,15 @@ export default {
     this.getOrders()
     console.log(this.orders)
   }
-}
+  }
 </script>
 
 <style>
 .pink-hover:hover {
   background-color: #FBF9FA !important;
 }
- .tableHeight {
-    max-height: calc(100vh - 400px);
-    overflow-y: auto;
-  }
-
+.tableHeight {
+  max-height: calc(100vh - 400px);
+  overflow-y: auto;
+}
 </style>

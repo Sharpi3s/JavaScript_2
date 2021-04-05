@@ -1,12 +1,9 @@
-// import axios from 'axios'
 
 export default {
   state: {
     cart: [],
-    // total: 0
   },
   getters: {
-    // cart: state => state.cart
     cart: state => {
       if(sessionStorage.getItem('shoppingCart') !== null) {
         state.cart = JSON.parse(sessionStorage.getItem('shoppingCart'))
@@ -24,11 +21,9 @@ export default {
       let total = 0 
       state.cart.forEach(tot => {
         total += tot.amount
-        // console.log(tot.amount)
       })
       return total
     }
-    // total: state => state.total
   },
   mutations: {
 
@@ -48,8 +43,6 @@ export default {
     }, 
  
     DELETE_ONE_CART_ITEM: (state, {product, size}) => {
-      // state.cart = state.cart.filter(item => item.product._id !== product._id && item.size === size)
-      // let exists = state.cart.find(item => item.size === size)
       const index = state.cart.findIndex( i => i.product._id === product._id && i.size === size);
       state.cart.splice( index, 1 );
       sessionStorage.setItem('shoppingCart', JSON.stringify(state.cart))
@@ -63,28 +56,22 @@ export default {
     ADD_ITEM: (state, {product, size} ) => {
       let exists = state.cart.find(item => item.product._id === product._id && item.size === size )
       if(exists) {
-
         exists.quantity += 1
         exists.amount += product.price 
-        // state.cartPriceTotal 
         sessionStorage.setItem('shoppingCart', JSON.stringify(state.cart))
         return 
       }
-      
     },
 
     SUB_ITEM: (state, {product, size} ) => {
       let exists = state.cart.find(item => item.product._id === product._id && item.size === size )
       if(exists && exists.quantity > 1) {
-
         exists.quantity -= 1
         exists.amount -= product.price 
         sessionStorage.setItem('shoppingCart', JSON.stringify(state.cart))
         return
       }
-     
     },
-   
  
   },
   actions: {

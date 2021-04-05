@@ -2,7 +2,6 @@
   <tr>
     <th scope="row"><img :src="product.product.img" alt=""></th>
     <td>{{ product.product.title }}</td>
-    <!-- <td></td> -->
     <td>{{ product.product.itemNumber }}</td>
     <td>{{ product.quantity }}</td>
     <td>$ {{ product.amount }}</td>

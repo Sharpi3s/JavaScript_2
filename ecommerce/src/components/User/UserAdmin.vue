@@ -2,8 +2,7 @@
   <div class="d-flex justify-content-between mb-3" v-if="user">
 
     <div class="mt-5 col-12">
-    <!-- <div class="d-flex justify-content-between col-10 align-items-center"> -->
-    <!-- <div class="d-flex justify-content-between align-items-between"> -->
+
       <div class="d-flex justify-content-between">
         <div class="mb-4 ">
           <strong>Name:</strong>
@@ -34,33 +33,28 @@
         aria-expanded="false"
         aria-controls="collapseExample"
         @click="getOrders"
-      >
-        Users Orders
-      </button>
-      <!-- <button @click="getOrders">Klick</button> -->
+        >
+          Users Orders
+        </button>
 
-      <!-- Collapsed content -->
-      <!-- <div > -->
-      <div class="collapse mt-3" id="collapseExample">
-        <h4>Orders</h4>
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Order Nr:</th>
-              <th scope="col">Orderd:</th>
-              <th scope="col">Total:</th>
-              <th scope="col">Handle</th>
-            </tr>
-          </thead>
-            <user-orders v-for="order in userOrder" :key="order._id" :order="order"/>   
-        </table>
-      </div>
+        <div class="collapse mt-3" id="collapseExample">
+          <h4>Orders</h4>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Order Nr:</th>
+                <th scope="col">Orderd:</th>
+                <th scope="col">Total:</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+              <user-orders v-for="order in userOrder" :key="order._id" :order="order"/>   
+          </table>
+        </div>
+
       </div>
       <button class="btn btn-dark" @click="delUser">REMOVE USER</button>
 
-
-
-      
     </div>
 
   </div>
@@ -78,22 +72,13 @@ export default {
     ...mapActions(['findUserOrder', 'deleteOneUser']),
     getOrders() {
       this.findUserOrder(this.user._id)
-      
     },
     delUser() {
       this.deleteOneUser(this.user._id)
-
       //Uppdaterar så man ser att ordern tagit bort. Hittar inget smidagare sätt....
       this.$router.go(this.$router.currentRoute)
     }
 
   },
-  mounted() {
-    
-  }
 }
 </script>
-
-<style>
-
-</style>

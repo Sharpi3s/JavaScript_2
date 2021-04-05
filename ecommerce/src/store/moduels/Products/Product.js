@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '@/axios'
 
 export default {
   state: {
@@ -24,11 +24,11 @@ export default {
   actions: {
 
     getOneProduct: async ({commit}, _id) => {
-      const res = await axios.get('http://localhost:9999/api/products/' + _id)
+      const res = await axios.get('/products/' + _id)
       commit('GET_A_PRODUCT', res.data)
     }, 
     deleteOneProduct: async ({commit}, _id) => {
-      const res = await axios.delete('http://localhost:9999/api/products/' + _id)
+      const res = await axios.delete('/products/' + _id)
       commit('DELETE_A_PRODUCT', res.data)
     },
    
@@ -42,7 +42,7 @@ export default {
         img: data.img,
         category: data.category
       }
-      await axios.post('http://localhost:9999/api/products', newProduct)
+      await axios.post('/products', newProduct)
       commit('NEW_PRODUCT', {newProduct})
     },
   },

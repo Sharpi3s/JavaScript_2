@@ -2,13 +2,12 @@
   <div id="bg">
     <div id="UpdatePop" class="bg-light border rounded p-3">
       
-      <!-- <form class="mt-3 col-10 m-auto" @submit.prevent="updateUser({user}, user._id)"> -->
       <form class="mt-3 col-10 m-auto" @submit.prevent="onSubmit">
         <div class="d-flex justify-content-between">
           <h5 class="mb-5">Edit your profile</h5>
           <p class="close" @click="$emit('close')"><i class="fas fa-times fa-md"></i></p>
-          <!-- <p class="close" @click="close"><i class="fas fa-times fa-md"></i></p> -->
         </div>
+        
         <div class="mb-4">
           <label class="form-label" for="email2">First Name</label>
           <input type="text" id="firstName" class="form-control" v-model="user.firstName"/>

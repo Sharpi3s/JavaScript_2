@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- Överflödigt att göra grid-component men vill inte riskera att göra om det när allt är klart och fungerar -->
     <grid />
   </div>
 </template>

@@ -37,16 +37,12 @@ export default {
     DELETE_A_ORDER: (state, order) => {
       state.delOrder = order
     },
-   
-    
-
   },
   actions: {
     getOneOrder: async ({commit}, _id) => {
       const res = await axios.get('/orders/' + _id)
       commit('GET_A_ORDER', res.data)
     },
-
 
     addOrder: async ({dispatch}, data) => {
       const newOrder = {

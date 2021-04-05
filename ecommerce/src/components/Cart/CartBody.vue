@@ -3,15 +3,10 @@
   <div class="bg-light shoppingBag">
     <div class="container d-flex pt-5">
 
-
-      <!-- <div class="d-flex justify-content-between align-items-center" v-if="success"> -->
-    
       <div class="col-8 p-4">
         <h2 class="mb-5">Shopping bag items</h2>
 
         <login-pop v-show="closeThis" @close="closePop"/>
-        <!-- <login-pop v-if="visible" :visible="visible"/> -->
-
 
         <div class="card-row pe-4">
           
@@ -21,13 +16,10 @@
            <div v-if="!loggedIn">
             <p>Are you a member? </p>
             <p class="SignIn" @click="showPop">Sign in</p>
-            <!-- <p class="SignIn" @click="visible = !visible">Sign in</p> -->
 
-            
            </div>
           </div>
           <cart-item v-for="(item, index) in cart" :key="index" :item="item"/>
-
         </div>
       </div>
 
@@ -65,7 +57,6 @@
       </div>
       
     </div>
-    
     
   </div>
 
@@ -146,9 +137,6 @@ export default {
   destroyed() {
     this.$forceUpdate();
   }
-  // unmounted() {
-  //   this.$forceUpdate();
-  // }
 
 }
 </script>
@@ -166,8 +154,6 @@ export default {
   }
   .shoppingBag {
     min-height: calc(100vh - 350px);
-    /* height: calc(100vh - 92px); */
-    
   }
   .card-row {
     height: calc(100vh - 480px);

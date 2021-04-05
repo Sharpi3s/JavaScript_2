@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '@/axios'
 
 export default {
   state: {
@@ -16,7 +16,7 @@ export default {
   actions: {
 
     getUsers: async ({commit}) => {
-      const res = await axios.get('http://localhost:9999/api/users')
+      const res = await axios.get('/users')
       commit('SET_USERS', res.data)
     }
    

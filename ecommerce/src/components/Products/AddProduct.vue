@@ -1,11 +1,10 @@
 <template>
-<div class="container register d-flex flex-column justify-content-center align-items-center mt-5">
+  <div class="container register d-flex flex-column justify-content-center align-items-center mt-5">
     <div class="mb-5 headlineAdd col-3">
         <h2 class=" p-3">Add New Product</h2>
     </div>
     <form class="col-6 p-3 mb-5 shadow-1" @submit.prevent="onSubmit">
-      <!-- 2 column grid layout with2text inputs for the first and last names -->
-      
+
       <div class="row mb-4">
         <div class="col-6">
           <div class="">
@@ -13,13 +12,7 @@
             <input type="text" id="title" class="form-control" v-model="newProduct.title"/>
           </div>
         </div>
-        <!-- <div class="col">
-          <div class="">
-            <label class="form-label" for="category">Category</label>
-            <input type="text" id="category" class="form-control" v-model="newProduct.category"/>
-            
-          </div>
-        </div> -->
+
         <div class=" d-flex flex-column col-6">
           <label class="form-label" for="category">Category</label>
           <select name="category" id="category" class="form-label" v-model="newProduct.category">
@@ -29,7 +22,6 @@
             <option value="Tops">Tops</option>
           </select>
         </div>
-
       </div>
 
       <div class="row mb-4">
@@ -48,24 +40,18 @@
         <textarea type="text" id="description" class="form-control" v-model="newProduct.description"></textarea>
       </div>
 
-
       <div class="mb-4">
         <label class="form-label" for="img">Image URL</label>
         <input type="text" id="img" class="form-control" v-model="newProduct.img"/>
       </div>
-
-
 
       <div class="col-2 m-auto">
           <button type="submit" class="btn btn-pink btn-block mb-4 text-white">Add!</button>
       </div>
       <p class="error success text-center"></p>
 
-
-
-
     </form>
-</div>
+  </div>
 </template>
 
 <script>
@@ -110,10 +96,7 @@ export default {
       },
 
     },
-    // updated() {
-    //    this.$forceUpdate();
-    // }
-            
+
 }
 </script>
 

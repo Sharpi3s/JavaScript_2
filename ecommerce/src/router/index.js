@@ -7,7 +7,6 @@ import Login from '../views/Login.vue'
 import Cart from '../views/Cart.vue'
 import User from '../views/User'
 import Users from '../views/Users'
-// import MyOrder from '../views/MyOrder'
 import MyOrders from '../views/MyOrders'
 import AllOrders from '../views/AllOrders'
 import Products from '../views/Products'
@@ -54,7 +53,6 @@ const routes = [
   {
     path: '/myorder',
     name: 'MyOrder',
-    // component: MyOrder,
     component: () => import( '../views/MyOrder.vue')
   },
   {
@@ -97,9 +95,6 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
-  // routes: [
-  //   { path: '*', component: NotFoundComponent }
-  // ]
 })
 
 router.beforeEach((to, from, next) => {

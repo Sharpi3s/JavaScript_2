@@ -9,30 +9,24 @@
           <table class="table">
             <thead>
               <tr>
-                <!-- <th scope="col"></th> -->
                 <th scope="col">Email</th>
                 <th scope="col">Order Nr</th>
                 <th scope="col">Amount</th>
-                <!-- <th scope="col"></th> -->
               </tr>
             </thead>
             <tbody>
-      
               <my-order-body v-for="order in userOrder" :key="order._id" :order="order" />
-      
             </tbody>
           </table>
-
-         
-        
       </div>
+
       <div  class="col-4  me-5">
         <h4 class="mt-2 mb-4">Order details:</h4>
         <div class="orders">
           <order-details />
         </div>
-          
       </div>
+
     </div>
      
   </div>
@@ -60,12 +54,8 @@ export default {
     ...mapGetters(['orders', 'oneUser', 'userOrder'])
   },
   mounted() {
-    // this.getOrders()
-    //  this.getOrders()
     this.findUserOrder(this.oneUser._id)
-    
   },
-  
 }
 </script>
 
@@ -78,5 +68,4 @@ export default {
   overflow-y: auto;
   margin-bottom: 2rem;
 }
-
 </style>

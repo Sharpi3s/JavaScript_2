@@ -1,7 +1,6 @@
 <template>
   <tbody>
       <tr class="pointer pink-hover " @click="info">
-        <!-- <th scope="row"></th> -->
         <td>{{ order.email }}</td>
         <td>{{ order._id }}</td>
         <td>${{ order.totalprice }}</td>
@@ -20,15 +19,12 @@ export default {
   props: ['order'],
   methods: {
     ...mapActions(['deleteOneOrder', 'getOneOrder']),
-    deleteOne() {
-      
+    deleteOne() { 
       this.deleteOneOrder(this.order._id)
-      
       //Uppdaterar så man ser att ordern tagit bort. Hittar inget smidagare sätt....
       this.$router.go(this.$router.currentRoute)
     },
     info() {
-      // this.getOneOrder(this.order._id)
       this.getOneOrder(this.order._id)
     }
   },

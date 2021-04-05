@@ -1,7 +1,4 @@
 <template>
-  <div class="">
-   <div >
-
     <section class="dark-grey-textr my-5">
 
         <h3 class="font-weight-bold text-left mb-5">Products</h3>
@@ -46,7 +43,6 @@
                   <td>$ {{ product.price }}</td>
                   <td>
                     <button class="btn btn-light px-3" @click="deleteOneProduct(product._id); reload();"><i class="fas fa-trash-alt fa-lg"></i></button>
-                    <!-- <button class="btn btn-light fas fa-trash-alt "></button> -->
                   </td>
                 </tr>
 
@@ -55,27 +51,14 @@
             </table>
           </div>
         </div>
-        <!-- Table -->
 
       </section>
 
-
-
-
-
-
-    </div>
-  </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
 export default {
-  data() {
-    return {
-      // product: this.products
-    }
-  },
   methods: {
     ...mapActions(['getProducts', 'sortDresses', 'sortBottoms', 'sortTops', 'deleteOneProduct']),
     dresses() {     
@@ -96,7 +79,6 @@ export default {
   },
   computed: {
     ...mapGetters(['products'])
-    // ...mapGetters(['products', 'dresses', 'tops', 'bottoms'])
   },
   mounted() {
     this.getProducts()

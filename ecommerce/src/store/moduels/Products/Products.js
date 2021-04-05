@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '@/axios'
 
 export default {
   state: {
@@ -45,11 +45,11 @@ export default {
   },
   actions: {
     getProducts: async ({commit}) => {
-      const res = await axios.get('http://localhost:9999/api/products')
+      const res = await axios.get('/products')
       commit('GET_PRODUCTS', res.data)
     },
     sortDresses: async ({commit}, data) => {
-      const res = await axios.get('http://localhost:9999/api/products')
+      const res = await axios.get('/products')
       // const product = await res.data.sort(product => product.category)
       const dresses = await res.data.filter(x => x.category === 'Dresses')
       if(data === 'dresses') {
@@ -62,7 +62,7 @@ export default {
       
     },
     sortBottoms: async ({commit}, data) => {
-      const res = await axios.get('http://localhost:9999/api/products')
+      const res = await axios.get('/products')
  
       const bottoms = await res.data.filter(x => x.category === 'Bottoms')
       if(data === 'bottoms') {
@@ -74,7 +74,7 @@ export default {
       
     },
     sortTops: async ({commit}, data) => {
-      const res = await axios.get('http://localhost:9999/api/products')
+      const res = await axios.get('/products')
 
       const tops = await res.data.filter(x => x.category === 'Tops')
       if(data === 'tops') {
