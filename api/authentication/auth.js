@@ -5,12 +5,10 @@ const secretKey = process.env.SECRET_KEY;
 
 exports.generateToken = (user) => {
   return jwt.sign({user}, secretKey, { expiresIn: '1h' })
-  // return jwt.sign({id: user._id}, secretKey, { expiresIn: '1h' })
 }
 
 exports.verifyToken = (req, res, next) => {
   try {
-    // Token blir skickad som: Bearer <token> därför splittar vi för att bara få token delen
     const token = req.headers.authorization.split(" ")[1]
     req.userData = jwt.verify(token, secretKey)
     next();

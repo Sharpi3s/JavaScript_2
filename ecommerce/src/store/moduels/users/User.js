@@ -109,7 +109,7 @@ export default {
     },
 
     login: ({commit, dispatch}, payload) => {
-      // axios.post('/users/login', payload)
+
       axios.post('/users/login', payload.user)
         .then(res => {
           if(res.status === 200) {

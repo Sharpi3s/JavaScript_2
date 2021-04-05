@@ -7,7 +7,6 @@ const auth = require('../../authentication/auth');
 exports.registerUser = (req, res) => {
 
   User.exists({ email: req.body.email }, (err, result) => {
-  // User.exists({ email: req.body.email }, (err, result) => {
     if(err) {
       return res.status(400).json(err)
     } else {
@@ -116,9 +115,6 @@ exports.getUsers = (req, res) => {
 }
 
 exports.getUser = (req, res) => {
-  // Product.findById(req.params.id)
-  //   .then(product => res.status(200).json(product))
-  //   .catch(err => res.status(404).json(err))
 
   User.exists({ _id: req.params.id }, (err, result) => {
     if(err) {

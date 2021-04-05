@@ -11,7 +11,6 @@ const productSchema = mongodb.Schema({
   itemNumber: { type: Number, default: function() {
     return Math.floor(100000 + Math.random() * 900000) },
   } ,
-  // itemNumber: { type: Number, default: Math.floor(100000 + Math.random() * 900000) },
   createdAt: { type: Date, default: Date.now() }
 
 })
