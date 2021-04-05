@@ -96,7 +96,7 @@
                         <p class="text-dark" >My Orders</p>
                       </router-link>
                       <li class="dropdown-item">
-                        <button class="btn btn-pink btn-block" @click.stop="logout">Sing Out</button>
+                        <button class="btn btn-pink btn-block" @click.stop="logout">Sign Out</button>
                       </li>
                   </div>
 

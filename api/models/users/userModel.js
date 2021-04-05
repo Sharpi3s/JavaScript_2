@@ -148,14 +148,14 @@ exports.deleteUser = (req, res) => {
     res.status(200).json({
       statusCode: 200,
       status: true,
-      message: 'Order deleted'
+      message: 'User deleted'
     })
   })
   .catch(() => {
     res.status(500).json({
       statusCode: 500, 
       status: false,
-      message: 'Failed to delete order'
+      message: 'Failed to delete user'
     })
   })
 }
@@ -166,14 +166,14 @@ exports.updateUser = (req, res) => {
     res.status(200).json({
       statusCode: 200,
       status: true,
-      message: 'Product updated successfully'
+      message: 'User updated successfully'
     })
   })
   .catch(() => {
     res.status(500).json({
       statusCode: 500,
       status: false,
-      message: 'Failed to update product'
+      message: 'Failed to update user'
     })
   })
 }

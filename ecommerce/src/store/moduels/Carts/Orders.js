@@ -22,7 +22,7 @@ export default {
           order.createdAt = dateBuilder(new Date(order.createdAt))
           return order
         })
-        state.orders = ordersDate
+        state.orders = ordersDate.reverse()
     },
     GET_ONE_ORDER: (state, result) => {
       // state.userOrder = resultat.reverse()
@@ -30,7 +30,7 @@ export default {
         order.createdAt = dateBuilder(new Date(order.createdAt))
         return order
       })
-      state.userOrder = ordersDate
+      state.userOrder = ordersDate.reverse()
     },
     LAST_ORDER: (state, lastOrder) => {
       state.lastOrder = lastOrder
@@ -48,6 +48,8 @@ export default {
       const resultat = await res.data.filter(order => order.userId === id)
       commit('GET_ONE_ORDER', resultat)
     },
+    /* För att få till en tacksida med order detaljer hämtar jag sista ordern som är tillagd i arrayen. 
+    Fungerar inte helt felfritt men blir den effekten jag ville komma åt när det väl fungerar */
     getLastOrder: async ({commit}) => {
       const res = await axios.get('/orders')
       let lastOrder = await res.data.slice(-1)[0]

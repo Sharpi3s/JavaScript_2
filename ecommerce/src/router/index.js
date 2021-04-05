@@ -7,7 +7,7 @@ import Login from '../views/Login.vue'
 import Cart from '../views/Cart.vue'
 import User from '../views/User'
 import Users from '../views/Users'
-import MyOrder from '../views/MyOrder'
+// import MyOrder from '../views/MyOrder'
 import MyOrders from '../views/MyOrders'
 import AllOrders from '../views/AllOrders'
 import Products from '../views/Products'
@@ -53,17 +53,14 @@ const routes = [
   },
   {
     path: '/myorder',
-    // path: '/myorder/:id',
     name: 'MyOrder',
-    component: MyOrder,
-    // props: true
+    // component: MyOrder,
+    component: () => import( '../views/MyOrder.vue')
   },
   {
     path: '/myorders',
-    // path: '/myorder/:id',
     name: 'MyOrders',
     component: MyOrders,
-    // props: true
   },
   {
     path: '/allorders',

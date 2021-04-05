@@ -1,6 +1,6 @@
 <template>
-
-      <tr class="pointer pink-hover" @click="info">
+  <tbody>
+      <tr class="pointer pink-hover " @click="info">
         <!-- <th scope="row"></th> -->
         <td>{{ order.email }}</td>
         <td>{{ order._id }}</td>
@@ -11,6 +11,7 @@
           </button>
         </td>
       </tr>
+  </tbody>
 </template>
 
 <script>
@@ -22,7 +23,7 @@ export default {
     deleteOne() {
       
       this.deleteOneOrder(this.order._id)
-
+      
       //Uppdaterar så man ser att ordern tagit bort. Hittar inget smidagare sätt....
       this.$router.go(this.$router.currentRoute)
     },

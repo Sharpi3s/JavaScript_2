@@ -1,10 +1,7 @@
 <template>
+
   <div class="container mt-5" v-if="lastOrder">
    <div class="col-8 m-auto my-5">
-      <!-- <div class="mb-5">
-        <h1>ORDER CONFIRMATION</h1>
-        <h5 class="text-muted">Order Number: {{ lastOrder._id }}</h5>
-      </div> -->
     <div class="my-5 text-center">
       <h2>Thanks for your order!</h2>
       <h5>This is your confirmation email. We'll be in touch soon to let you <br>know when your order has been shipped. Below is your order info.</h5>
@@ -75,8 +72,6 @@
           </div>
         </div>
 
-    
-
     </div> 
    </div>
 
@@ -95,12 +90,12 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['newOrder', 'orders', 'lastOrder', 'oneUser']),
+    ...mapGetters(['lastOrder', 'oneUser']),
  
   }, 
 
   methods: {
-    ...mapActions(['getOneOrder', 'getOrders', 'getLastOrder', 'getOneUser', 'checkUser']),
+    ...mapActions(['getLastOrder']),
     amount() {
       
       let total = this.lastOrder.totalprice

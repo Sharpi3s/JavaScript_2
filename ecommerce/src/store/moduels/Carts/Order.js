@@ -60,17 +60,16 @@ export default {
       dispatch('myOrder', {newOrder})
     },
 
-
-    myOrder: async ({commit}, newOrder) => {
-      
-      commit('ADD_ORDER', newOrder)
+    /* försökte få tag på ordern direkt efter den skapats så jag kunde skriva ut den på en order detalj sida när orden skapats
+    Men fungerade inte alls så som jag tänkt. Gjorde en provosorisk lösning istället där jag hämtar sisa tillagda ordern i min array */
+    myOrder: async ({commit}, {newOrder}) => {
+      commit('ADD_ORDER', {newOrder})
     },
   
     deleteOneOrder: async ({commit}, _id) => {
       const res = await axios.delete('/orders/' + _id)
       commit('DELETE_A_ORDER', res.data)
     },
-
 
   },
 

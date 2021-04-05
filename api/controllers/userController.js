@@ -8,6 +8,8 @@ router.get('/', userModel.getUsers);
 router.get('/:id', userModel.getUser);
 
 router.delete('/:id', userModel.deleteUser);
+router.patch('/:id', userModel.updateUser);
+
 
 
 module.exports = router;

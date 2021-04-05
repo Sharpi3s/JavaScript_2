@@ -12,7 +12,8 @@ export default {
     userToken: null,
     loggedIn: false,
     errorLoggin: null,
-    delUser: null
+    delUser: null,
+    updateOneUser: null
     
   },
   getters: {
@@ -90,6 +91,9 @@ export default {
     },
     DELETE_ONE_USER: (state, data) => {
       state.delUser = data
+    },
+    UPDATE_ONE_USER: (state, data) => {
+      state.updateOneUser = data
     }
    
   },
@@ -152,7 +156,13 @@ export default {
       const res = await axios.delete('/users/' + _id)
       commit('DELETE_ONE_USER', res.data)
     },
+    updateUser: async ({commit}, _user) => {
 
+
+      await axios.patch('/users/' + _user._id, _user)
+
+      commit('UPDATE_ONE_USER', _user)
+    }
 
   },
 

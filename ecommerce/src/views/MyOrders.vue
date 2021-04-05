@@ -4,7 +4,8 @@
     <div class="d-flex justify-content-between">
       
       <div class="col-6">
-        <h2>ORDERS</h2>
+        <h2>MY ORDERS</h2>
+        <p class="mb-5">Select one order for more details.</p>
           <table class="table">
             <thead>
               <tr>

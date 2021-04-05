@@ -143,9 +143,12 @@ export default {
   mounted() {
     this.amount()
   },
-  unmounted() {
+  destroyed() {
     this.$forceUpdate();
   }
+  // unmounted() {
+  //   this.$forceUpdate();
+  // }
 
 }
 </script>
@@ -175,11 +178,5 @@ export default {
     cursor: pointer;
     text-decoration: underline;
   }
-  /* .btn-pink {
-  background-color: #c38587f3;
-  color: #fff;
-  }
-  .btn-pink:hover {
-    background-color: #fff;
-  } */
+
 </style>
