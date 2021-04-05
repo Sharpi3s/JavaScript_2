@@ -1,4 +1,11 @@
 <template>
+
+<!-- Fumgerar inte helt felfritt. Användaren man är inne på stannar kvar om man inte trycker på den rosa knappen igen. 
+     Det går att ta bort en order men sian laddas om då man får gå in på användaren igen för att se att ordern tagits bort. 
+     Detta fungerar lite bättre på sidan där man ser alla ordrar istället  -->
+
+
+
   <div class="container mt-5">
     <div v-if="this.oneUser.admin">
       <h2 class="mb-5">USERS</h2>
